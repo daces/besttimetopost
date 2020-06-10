@@ -1,0 +1,132 @@
+import axios from 'axios'
+import {
+  instagramUrl,
+  graphql,
+  regSharedData,
+  regProfilePageURL,
+  regQueryID
+} from '../config'
+
+export function get( username ) {
+  var sData = {};
+  var queryString = {};
+  return new Promise( function ( resolve ) {
+      resolve( getProfilePage( username ) );
+    } )
+    .catch( rejected )
+
+    .then( function ( webpage ) {
+      return sharedData( webpage );
+    } )
+    .catch( rejected )
+
+    .then( function ( webpage ) {
+      return profilePageUrl( webpage );
+    } )
+    .catch( rejected )
+
+    .then( function ( webpage ) {
+      return queryHash( webpage.data );
+    } )
+    .catch( rejected )
+
+    .then( function ( queryHash ) {
+      var parameters = getVariables( );
+      return morePosts( parameters, queryHash );
+    } )
+    .catch( rejected )
+
+  function getProfilePage( username ) {
+    return axios( `${instagramUrl}${username}/` );
+  }
+
+  function sharedData( webpage ) {
+    var tempStorage = JSON.parse( webpage.data.match( regSharedData )[ 1 ] );
+    sData = tempStorage.entry_data.ProfilePage[ 0 ].graphql.user;
+    // sData.edge_owner_to_timeline_media.edges = [];
+    return webpage;
+  }
+
+  function profilePageUrl( webpage ) {
+    var url = webpage.data.match( regProfilePageURL )[ 1 ];
+    return axios( `${instagramUrl}${url}` );
+  }
+
+  function queryHash( webpage ) {
+    try {
+      if ( regQueryID.test( webpage ) ) {
+        var queryH = webpage.match( regQueryID )[ 1 ];
+        queryString.queryHash = queryH;
+        return queryH;
+      } else return 'f045d723b6f7f8cc299d62b57abd500a';
+    } catch ( error ) {
+      throw new Error( 'Higher-level error. ' + error.message );
+    }
+  }
+
+  function getVariables( ) {
+    var {
+      edge_owner_to_timeline_media: {
+        page_info: {
+          end_cursor: after,
+          has_next_page
+        }
+      },
+      id
+    } = sData || {}
+    var queryString = {
+      variables: {
+        id: id,
+        first: 12,
+        after: after
+      },
+      has_next_page
+    }
+    return queryString;
+  }
+
+  function morePosts( parameters, queryHash ) {
+    var p3 = Promise.resolve( gatherMedia( parameters, queryHash ) );
+    // var p3 = Promise.resolve (makeRequest (parameters, queryHash));
+    p3.then( function ( results ) {
+      return gatherMedia( parameters, queryHash, results );
+    } ).then( function ( results ) {
+      gatherMedia( parameters, queryHash, results );
+      // return sData
+    } )
+    return sData;
+  }
+
+  function gatherMedia( parameters, queryHash, results ) {
+    var jsonInfo = results ?
+      results.data.data.user.edge_owner_to_timeline_media :
+      sData.edge_owner_to_timeline_media;
+    var {
+      page_info,
+      edges: media
+    } = jsonInfo || {}
+    parameters.variables.after = page_info.end_cursor;
+    parameters.has_next_page = page_info.has_next_page;
+    if ( results !== undefined ) {
+      sData.edge_owner_to_timeline_media.edges = sData.edge_owner_to_timeline_media.edges.concat(
+        media
+      );
+    }
+    results = makeRequest( parameters, queryHash );
+    return results;
+  }
+
+  function makeRequest( parameters, queryHash ) {
+    var results = axios( `
+			${instagramUrl}
+			${graphql}
+			query_hash=${queryHash}&
+			variables=${encodeURIComponent(JSON.stringify(parameters.variables))}` );
+    return results;
+  }
+
+  function rejected( error ) {
+    console.log( 'Error Detected: ', error );
+    return error;
+  }
+}

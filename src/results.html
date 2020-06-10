@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <title>What Is The Best Time To Post On Instagram?</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+</head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-76258717-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-76258717-3');
+</script>
+
+<style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+  }
+
+  body {
+    font-family: monospace, Arial, sans-serif;
+    font-size: 100%;
+    color: #352626;
+
+  }
+
+  a {
+    color: #6a63fd !important;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  :not(svg) {
+    transform-origin: 0px 0px;
+  }
+
+  .logo__link {
+    display: block;
+    text-align: center;
+  }
+
+  .logo__image {
+    width: 400px;
+  }
+
+  .white {
+    color: #fff;
+  }
+
+  .cell,
+  .day-cell {
+    display: inline-block;
+    height: 38px;
+    vertical-align: bottom;
+    width: 4%;
+    line-height: 36px;
+    text-align: center;
+    text-transform: capitalize;
+    border: 1px solid #fff;
+  }
+
+  .white {
+    background: #fff;
+  }
+
+  .day-cell,
+  .hours {
+    display: block;
+  }
+
+  .hours .cell {
+    display: inline-block;
+    text-transform: lowercase;
+    font-size: 12px;
+    width: 3.84%
+  }
+
+  .week .cell {
+    color: #fff;
+    font-size: 126%;
+    font-weight: bold
+  }
+
+  .days,
+  .wrap-days,
+  .wrap-week {
+    display: inline-block;
+    float: left;
+  }
+
+  .days {
+    margin-right: 8px;
+  }
+
+  .wrapper {
+    background: #fff;
+    padding: 0 0 30px 10px;
+  }
+
+  #react-app {
+    background: url("./img/besttime_cover.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .wrap-week {
+    width: 95%;
+  }
+
+  .sunday,
+  .monday,
+  .tuesday,
+  .wednesday,
+  .thursday,
+  .friday,
+  .saturday {
+    display: block;
+  }
+
+  #react-app-hashtags {
+    word-break: break-all;
+  }
+
+  .clear-fix {
+    clear: both;
+  }
+
+  #besttime1 {
+    display: block;
+  }
+
+  #besttime2,
+  #besttime3 {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .day-cell {
+      display: inline-block;
+      width: 12%;
+    }
+
+    .days,
+    .wrap-days,
+    .wrap-week {
+      display: block;
+      float: none;
+    }
+
+    .hours .cell {
+      display: block;
+    }
+
+    .hours {
+      display: block;
+      float: left;
+    }
+
+    .sunday,
+    .monday,
+    .tuesday,
+    .wednesday,
+    .thursday,
+    .friday,
+    .saturday {
+      display: inline-block;
+      width: 12%;
+      float: left;
+    }
+
+    .cell {
+      display: block;
+      width: 100%;
+    }
+  }
+</style>
+
+<body>
+
+  <div class="container">
+    <div class="logo">
+      <a class="logo__link" href="./index.html" alt="Best Time To Post on Instagram"
+        title="Best Time To Post on Instagram">
+        <img class="logo__image" src="http://localhost:8080/img/logo.jpg" alt="" />
+      </a>
+    </div>
+
+
+    <div class="main">
+      <div class="tabs is-centered">
+        <ul>
+          <li class="is-active"><a id="menu_best-time">Best time</a>
+          </li>
+          <li><a id="menu_hashtags">Hashtags</a></li>
+          <li><a id="menu_images">Images</a></li>
+        </ul>
+      </div>
+
+      <div id="besttime1" class=" ">
+        <div class="section ">
+          <p>The colored chart gives you info about every day and time all at the same time for easy comparison. The
+            darker the purple/blue, the better time it is to post on Instagram.</p>
+          </br>
+          <p>The best times to post on Instagram will be displayed in the admin’s timezone so be sure you know what
+            timezone that is and adjust accordingly.</p>
+          </br>
+
+          <span class="timeZone">
+            <script>document.getElementsByClassName("timeZone")[0].innerText = "Time zone: " + new Date().toTimeString().substr(9);</script>
+          </span>
+        </div>
+        <div id="react-app" class="section"></div>
+      </div>
+      <div id="besttime2" class="section">
+        <div id="react-app-hashtags" class="clear-fix">
+          <div id="word-cloud"></div>
+        </div>
+      </div>
+      <div id="besttime3" class="section">
+        <div id="react-app-images" class="columns clear-fix"></div>
+      </div>
+      <script>
+        (function IIFI() {
+          var menuBestTime = document.getElementById("menu_best-time");
+          var menuHashtags = document.getElementById("menu_hashtags");
+          var menuImages = document.getElementById("menu_images");
+          var besttimeHours = document.getElementById("besttime1");
+          var besttimeHashtags = document.getElementById("besttime2");
+          var besttimeProtos = document.getElementById("besttime3");
+
+          menuBestTime.addEventListener("click", function (event) {
+            selectTab(1, event);
+          });
+          menuHashtags.addEventListener("click", function (event) {
+            selectTab(2, event);
+          });
+          menuImages.addEventListener("click", function (event) {
+            selectTab(3, event);
+          });
+          function selectTab(tabIndex, event) {
+            besttimeHours.style.display = "none";
+            besttimeHashtags.style.display = "none";
+            besttimeProtos.style.display = "none";
+
+            menuBestTime.parentNode.classList.remove("is-active")
+            menuHashtags.parentNode.classList.remove("is-active")
+            menuImages.parentNode.classList.remove("is-active")
+
+            document.getElementById('besttime' + tabIndex).style.display = "block";
+            event.target.parentNode.classList.add("is-active")
+          }
+        })();
+      </script>
+      <div class="footer">
+        <div class="content has-text-centered">
+          <a href="./privacy.html"><span>Privacy policy</span></a>
+          <a href="./terms.html"><span>Terms</span></a>
+          <a href="./index.html"><span>About</span></a>
+          <a href="./feedback.html"><span>Send Feedback</span></a>
+        </div>
+      </div> <!-- end #footer -->
+    </div> <!-- end #container -->
+
+
+
+  </div> <!-- end #main -->
+
+  <script type="text/javascript" src="js/bundle.js"></script>
+</body>
+
+
+</html>

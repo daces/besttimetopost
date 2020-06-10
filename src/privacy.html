@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="normalise.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>Privacy page</title>
+</head>
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+body { 
+	font-family: Arial, sans-serif;
+	font-size: 100%;
+    color: rgba(51,51,51,1);
+}
+#main {
+    min-width: 360px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+#menu {
+	display: inline-block;
+	margin: 24px;
+}
+.Union_4 {
+	overflow: visible;
+	width: 16px;
+	height: 14px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#logo {
+	position: relative;
+	width: 73px;
+	height: 110px;
+	margin: 100px auto;
+}
+#clock, #calendar, .rectangle {
+	position: absolute;
+	overflow: visible;
+    width: 73px;
+    height: 73px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#calendar {
+	top: 0;
+}
+.rectangle {
+	top: 20px;
+}
+#clock {
+	top: 22px;
+	}
+#search {
+	position: relative;
+	text-align: center;
+}
+#search_box {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-left: 24px;
+}
+#search-input {
+    margin: 0 auto;
+    border: none;
+    border-bottom: 1px solid #F6F6F6;
+    color: rgba(51,51,51,1);
+    font-size: 32px;
+    text-align: right;
+    margin-right: 10px;
+}
+#search-input::placeholder {
+    color: rgba(51,51,51,1);
+	opacity: 1; /* Firefox */
+} 
+#search-input:focus {
+	border-bottom: 1px solid #d4294b;
+} 
+#magnifying {
+	width: 38px;
+	height: 38px;
+	position: absolute;
+}
+#description_text {
+	display: inline-block;
+	min-width: 276px;
+	max-width: 414px;
+	margin: 24px;
+	line-height: 1.5;
+    font-size: 1rem;
+}
+.showcase {
+    color: #D4294B;
+}
+.showcase_desc {
+	font-size: 14px;
+}
+
+#footer {
+	margin: 12px 24px;
+	text-align: center;
+}
+#footer span{
+	margin: 0 12px;
+	font-size: 0.7rem;
+}
+.search-box {
+    margin: 8px;
+}
+form#form-submit {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 736px;
+    min-width: 350px;
+    overflow: hidden;
+    width: auto;
+	background: none;
+}
+.form-box {
+    background: none;
+    position: relative;
+    border-radius: 20px;
+}
+.form-wrap {
+    display: flex;
+    z-index: 3;
+    border: 1px solid #DFE1E5;
+    border-radius: 20px;
+    background: #fff;
+}
+.form-button {
+    outline: none;
+    background: none;
+    border: none;
+    margin: 0 15px 0 17px;
+    padding: 0;
+    flex: 0 0 auto;
+}
+.form-app {
+    flex: 1;
+    display: flex;
+    padding: 7px 0 6px;
+}
+.form-app-container {
+    display: flex;
+    flex: 1;
+}
+.search-input {
+    line-height: 25px;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0 0 0 16px;
+    font-size: 18px;
+    color: rgba(0,0,0,.87);
+    word-wrap: break-word;
+    outline: none;
+    display: flex;
+    flex: 1;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+}
+.wrap-button {
+    display: flex;
+    flex: 0 0 auto;
+    margin: -7px 0;
+    align-items: stretch;
+    flex-direction: column;
+}
+.button-wrap {
+    display: flex;
+    flex: 1;
+    color: #757575;
+    cursor: pointer;
+    font: 27px/25px arial,sans-serif;
+    align-items: center;
+    padding: 0 15px 0 5px;
+    border: 0;
+    background: transparent;
+}
+.search__btn {
+    display: flex;
+    border-radius: 0 20px 20px 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #D4294B;
+    border: 1px solid #D4294B;
+    margin: -1px;
+    flex: 0 0 auto;
+}
+.svg-container {
+    background: none;
+    color: #fff;
+    height: 24px;
+    width: 24px;
+    margin: auto;
+}
+.button-svg {
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    width: 24px;
+}
+.button-svg svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+.terms {
+    margin-top: 24px;
+    margin-left: 24px;
+    font-family: Helvetica,Arial,sans-serif;
+    line-height: 1.5;
+}
+</style>
+<body>
+	<div id="main">
+		<div id="menu">
+		<a href="./index.html" alt="Best Time To Post on Instagram"  title="Best Time To Post on Instagram">
+			<svg class="Union_4" viewBox="0 0 16 14">
+						<path fill="rgba(51,51,51,1)" id="Union_4" d="M 0 14.00040054321289 L 0 11.99970054626465 L 8.000100135803223 11.99970054626465 L 8.000100135803223 14.00040054321289 L 0 14.00040054321289 Z M 0 8.000100135803223 L 0 6.00029993057251 L 16.00020027160645 6.00029993057251 L 16.00020027160645 8.000100135803223 L 0 8.000100135803223 Z M 0 1.999800086021423 L 0 0 L 16.00020027160645 0 L 16.00020027160645 1.999800086021423 L 0 1.999800086021423 Z">
+						</path>
+					</svg>
+		</a>
+		</div>
+
+
+<p class="terms">
+Privacy Policy for Best time to post <br><br>If you require any more information or have any questions about our privacy policy, please feel free to contact us by email at admin@besttimetopost.com.
+<br><br>
+At besttimetopost.com we consider the privacy of our visitors to be extremely important. This privacy policy document describes in detail the types of personal information is collected and recorded by besttimetopost.com and how we use it.
+<br><br>
+Log Files
+<br><br>Like many other Web sites, besttimetopost.com makes use of log files. These files merely logs visitors to the site - usually a standard procedure for hosting companies and a part of hosting services's analytics. The information inside the log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date/time stamp, referring/exit pages, and possibly the number of clicks. This information is used to analyze trends, administer the site, track user's movement around the site, and gather demographic information. IP addresses, and other such information are not linked to any information that is personally identifiable.
+<br><br>
+Cookies and Web Beacons
+<br><br>
+besttimetopost.com uses cookies to store information about visitors' preferences, to record user-specific information on which pages the site visitor accesses or visits, and to personalize or customize our web page content based upon visitors' browser type or other information that the visitor sends via their browser. 
+<br><br>
+DoubleClick DART Cookie
+<br><br>
+--Google, as a third party vendor, uses cookies to serve ads on besttimetopost.com.
+<br>
+--Google's use of the DART cookie enables it to serve ads to our site's visitors based upon their visit to besttimetopost.com and other sites on the Internet.
+<br>
+--Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy at the following URL - http://www.google.com/privacy_ads.html
+<br><br>
+Our Advertising Partners
+<br><br>
+Some of our advertising partners may use cookies and web beacons on our site. Our advertising partners include ....... 
+<br>
+--Google 
+--Commission Junction
+<br>
+While each of these advertising partners has their own Privacy Policy for their site, an updated and hyperlinked resource is maintained here: Privacy Policies. You may consult this listing to find the privacy policy for each of the advertising partners of besttimetopost.com.
+<br><br>These third-party ad servers or ad networks use technology in their respective advertisements and links that appear on besttimetopost.com and which are sent directly to your browser. They automatically receive your IP address when this occurs. Other technologies (such as cookies, JavaScript, or Web Beacons) may also be used by our site's third-party ad networks to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on the site. besttimetopost.com has no access to or control over these cookies that are used by third-party advertisers.
+<br><br>
+Third Party Privacy Policies<br><br>
+You should consult the respective privacy policies of these third-party ad servers for more detailed information on their practices as well as for instructions about how to opt-out of certain practices. besttimetopost.com's privacy policy does not apply to, and we cannot control the activities of, such other advertisers or web sites. You may find a comprehensive listing of these privacy policies and their links here: Privacy Policy Links.
+<br><br>
+If you wish to disable cookies, you may do so through your individual browser options. More detailed information about cookie management with specific web browsers can be found at the browsers' respective websites. What Are Cookies? 
+<br><br>
+Children's Information
+<br><br>
+We believe it is important to provide added protection for children online. We encourage parents and guardians to spend time online with their children to observe, participate in and/or monitor and guide their online activity. besttimetopost.com does not knowingly collect any personally identifiable information from children under the age of 13. If a parent or guardian believes that besttimetopost.com has in its database the personally-identifiable information of a child under the age of 13, please contact us immediately (using the contact in the first paragraph) and we will use our best efforts to promptly remove such information from our records.
+<br><br>
+Online Privacy Policy Only
+<br><br>
+This privacy policy applies only to our online activities and is valid for visitors to our website and regarding information shared and/or collected there. This policy does not apply to any information collected offline or via channels other than this website. 
+<br><br>
+Consent
+<br><br>
+By using our website, you hereby consent to our privacy policy and agree to its terms. 
+<br><br>
+Update
+<br><br>This Privacy Policy was last updated on: Monday, November 11th, 2019. Should we update, amend or make any changes to our privacy policy, those changes will be posted here.
+</p>
+	<div id="footer">
+        <a href="./privacy.html"><span>Privacy policy</span></a>
+        <a href="./terms.html"><span>Terms</span></a>
+		<a href="./index.html"><span>About</span></a>
+		<a href="./feedback.html"><span>Send Feedback</span></a>
+	</div>  <!-- end #footer -->
+		</div> <!-- end #main -->	
+</body>
+</html>

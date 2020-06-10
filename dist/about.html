@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="normalise.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>About</title>
+</head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-76258717-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-76258717-3');
+</script>
+
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+body { 
+	font-family: Arial, sans-serif;
+	font-size: 100%;
+    color: rgba(51,51,51,1);
+}
+#main {
+    min-width: 360px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+#menu {
+	display: inline-block;
+	margin: 24px;
+}
+.Union_4 {
+	overflow: visible;
+	width: 16px;
+	height: 14px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#logo {
+	position: relative;
+	width: 73px;
+	height: 110px;
+	margin: 100px auto;
+}
+#clock, #calendar, .rectangle {
+	position: absolute;
+	overflow: visible;
+    width: 73px;
+    height: 73px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#calendar {
+	top: 0;
+}
+.rectangle {
+	top: 20px;
+}
+#clock {
+	top: 22px;
+	}
+#search {
+	position: relative;
+	text-align: center;
+}
+#search_box {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-left: 24px;
+}
+#search-input {
+    margin: 0 auto;
+    border: none;
+    border-bottom: 1px solid #F6F6F6;
+    color: rgba(51,51,51,1);
+    font-size: 32px;
+    text-align: right;
+    margin-right: 10px;
+}
+#search-input::placeholder {
+    color: rgba(51,51,51,1);
+	opacity: 1; /* Firefox */
+} 
+#search-input:focus {
+	border-bottom: 1px solid #d4294b;
+} 
+#magnifying {
+	width: 38px;
+	height: 38px;
+	position: absolute;
+}
+#description_text {
+	display: inline-block;
+	min-width: 276px;
+	max-width: 414px;
+	margin: 24px;
+	line-height: 1.5;
+    font-size: 1rem;
+}
+.showcase {
+    color: #D4294B;
+}
+.showcase_desc {
+	font-size: 14px;
+}
+
+#footer {
+	margin: 12px 24px;
+	text-align: center;
+}
+#footer span{
+	margin: 0 12px;
+	font-size: 0.7rem;
+}
+.search-box {
+    margin: 8px;
+}
+form#form-submit {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 736px;
+    min-width: 350px;
+    overflow: hidden;
+    width: auto;
+	background: none;
+}
+.form-box {
+    background: none;
+    position: relative;
+    border-radius: 20px;
+}
+.form-wrap {
+    display: flex;
+    z-index: 3;
+    border: 1px solid #DFE1E5;
+    border-radius: 20px;
+    background: #fff;
+}
+.form-button {
+    outline: none;
+    background: none;
+    border: none;
+    margin: 0 15px 0 17px;
+    padding: 0;
+    flex: 0 0 auto;
+}
+.form-app {
+    flex: 1;
+    display: flex;
+    padding: 7px 0 6px;
+}
+.form-app-container {
+    display: flex;
+    flex: 1;
+}
+.search-input {
+    line-height: 25px;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0 0 0 16px;
+    font-size: 18px;
+    color: rgba(0,0,0,.87);
+    word-wrap: break-word;
+    outline: none;
+    display: flex;
+    flex: 1;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+}
+.wrap-button {
+    display: flex;
+    flex: 0 0 auto;
+    margin: -7px 0;
+    align-items: stretch;
+    flex-direction: column;
+}
+.button-wrap {
+    display: flex;
+    flex: 1;
+    color: #757575;
+    cursor: pointer;
+    font: 27px/25px arial,sans-serif;
+    align-items: center;
+    padding: 0 15px 0 5px;
+    border: 0;
+    background: transparent;
+}
+.search__btn {
+    display: flex;
+    border-radius: 0 20px 20px 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #D4294B;
+    border: 1px solid #D4294B;
+    margin: -1px;
+    flex: 0 0 auto;
+}
+.svg-container {
+    background: none;
+    color: #fff;
+    height: 24px;
+    width: 24px;
+    margin: auto;
+}
+.button-svg {
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    width: 24px;
+}
+.button-svg svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+.terms {
+    margin-top: 24px;
+    margin-left: 24px;
+    font-family: Helvetica,Arial,sans-serif;
+    line-height: 1.5;
+}
+</style>
+<body>
+	<div id="main">
+		<div id="menu">
+		<a href="./index.html" alt="Best Time To Post on Instagram"  title="Best Time To Post on Instagram">
+			<svg class="Union_4" viewBox="0 0 16 14">
+						<path fill="rgba(51,51,51,1)" id="Union_4" d="M 0 14.00040054321289 L 0 11.99970054626465 L 8.000100135803223 11.99970054626465 L 8.000100135803223 14.00040054321289 L 0 14.00040054321289 Z M 0 8.000100135803223 L 0 6.00029993057251 L 16.00020027160645 6.00029993057251 L 16.00020027160645 8.000100135803223 L 0 8.000100135803223 Z M 0 1.999800086021423 L 0 0 L 16.00020027160645 0 L 16.00020027160645 1.999800086021423 L 0 1.999800086021423 Z">
+						</path>
+					</svg>
+		</a>
+		</div>
+
+
+<p class="terms">
+About
+<br><br>
+Have you searched "best time to post on instagram" on google? and you didn`t find what you were looking for?
+ <br><br>
+I did too, and reading countles articles about what is the best time to post on instagram i didn`t find the answer that i was looking for. The articles were packed with general information.
+<br><br>
+I needed something more specific i needed to know about my competiotion and when they post, what hashtags they are using, and their popular content.
+<br><br>
+To get the information i wanted and give answer to thoulsand folks searching for "best time to post on instagram" i created
+this website where you can search your competitor and Hopefully find the info you were looking for.
+<br><br>
+If you find this website useful please share it with your friends.
+<br><br>
+Thank you very much for visiting.
+<br><br>
+</p>
+	<div id="footer">
+        <a href="./privacy.html"><span>Privacy policy</span></a>
+        <a href="./terms.html"><span>Terms</span></a>
+		<a href="./about.html"><span>About</span></a>
+		<a href="./feedback.html"><span>Send Feedback</span></a>
+	</div>  <!-- end #footer -->
+		</div> <!-- end #main -->	
+</body>
+</html>
